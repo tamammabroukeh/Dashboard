@@ -1,0 +1,102 @@
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 4rem;
+  transition: all 300ms ease;
+}
+.Sidebar .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 22px;
+  font-weight: 500;
+  height: 4%;
+}
+.Sidebar .logo > img {
+  height: 3rem;
+  width: 3rem;
+}
+.Sidebar .logo > span > span {
+  color: var(--pink);
+}
+/* Menu */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.menu .menuItem {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-left: 2rem;
+  position: relative;
+  height: 2.5rem;
+  font-size: 14px;
+  border-radius: 0.7rem;
+  transition: all 300ms ease;
+}
+.menu .menuItem:hover {
+  cursor: pointer;
+}
+.menu .menuItem.active {
+  background: var(--activeItem);
+  margin-left: 0;
+}
+.menu .menuItem.active::before {
+  content: "";
+  width: 8px;
+  height: 100%;
+  background-color: var(--pink);
+  margin-right: calc(1rem - 8px);
+}
+.menu .menuItem:last-child {
+  bottom: 2.3rem;
+  position: absolute;
+  width: 100%;
+}
+.bars {
+  display: none;
+  padding: 0;
+}
+@media screen and (max-width: 1200px) {
+  .menuItem span {
+    display: none;
+  }
+  .logo > * {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Sidebar {
+    position: fixed;
+    z-index: 9;
+    background: #ffe0e0;
+    padding-right: 1rem;
+    width: 55%;
+    height: 100%;
+  }
+  .menuItem > span {
+    display: block;
+  }
+  .logo > * {
+    display: flex;
+  }
+  .menu .menuItem:last-child {
+    position: relative;
+    margin-top: 2rem;
+  }
+  .bars {
+    position: fixed;
+    display: flex;
+    top: 2rem;
+    z-index: 9;
+    background: #ffe0e0;
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
